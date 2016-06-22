@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>edu.juris.graph</groupId>
+  <artifactId>ioregs</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <name>TinkerPop IoRegistry for Spark Internals</name>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.tinkerpop</groupId>
+      <artifactId>gremlin-core</artifactId>
+      <version>3.2.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tinkerpop</groupId>
+      <artifactId>spark-gremlin</artifactId>
+      <version>3.2.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>2.4.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.10</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <directory>${basedir}/target</directory>
+    <finalName>${project.artifactId}-${project.version}</finalName>
+    <plugins>
+      <plugin>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<!-- 2.8.0-01 and later require maven-compiler-plugin 3.1 or higher -->
+	<version>3.0</version>
+	<configuration>
+	  <compilerId>groovy-eclipse-compiler</compilerId>
+	</configuration>
+	<dependencies>
+	  <dependency>
+	    <groupId>org.codehaus.groovy</groupId>
+	    <artifactId>groovy-eclipse-compiler</artifactId>
+	    <version>2.9.2-01</version>
+	  </dependency>
+	  <!-- for 2.8.0-01 and later you must have an explicit dependency on groovy-eclipse-batch -->
+	  <dependency>
+	    <groupId>org.codehaus.groovy</groupId>
+	    <artifactId>groovy-eclipse-batch</artifactId>
+	    <version>2.4.6-01</version>
+	  </dependency>
+	</dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>

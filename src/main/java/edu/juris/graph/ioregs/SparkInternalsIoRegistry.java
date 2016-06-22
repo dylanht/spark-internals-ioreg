@@ -21,7 +21,7 @@ package edu.juris.graph.ioregs;
 import org.apache.tinkerpop.gremlin.structure.io.AbstractIoRegistry;
 import org.apache.tinkerpop.gremlin.structure.io.gryo.GryoIo;
 import org.apache.spark.util.collection.CompactBuffer;
-import edu.juris.graph.ioregs.CompactBufferSerializer;
+// import edu.juris.graph.ioregs.CompactBufferSerializer;
 
 public final class SparkInternalsIoRegistry extends AbstractIoRegistry {
 

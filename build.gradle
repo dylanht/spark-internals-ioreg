@@ -16,7 +16,7 @@ sourceSets {
 }
 
 dependencies {
-  compile 'org.codehaus.groovy:groovy:2.4.6'
+  compile 'org.codehaus.groovy:groovy:2.4.4'
   compile 'org.apache.tinkerpop:gremlin-core:3.2.1-SNAPSHOT'
   compile 'org.apache.tinkerpop:spark-gremlin:3.2.1-SNAPSHOT'
 }

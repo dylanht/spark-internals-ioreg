@@ -1,29 +1,10 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-
 package edu.juris.graph.ioregs
 
 import org.apache.spark.util.collection.CompactBuffer
-import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.InputShim;
-import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.KryoShim;
-import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.OutputShim;
-import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.SerializerShim;
+import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.InputShim
+import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.KryoShim
+import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.OutputShim
+import org.apache.tinkerpop.gremlin.structure.io.gryo.kryoshim.SerializerShim
 import org.apache.tinkerpop.shaded.kryo.Kryo
 import org.apache.tinkerpop.shaded.kryo.Serializer
 import org.apache.tinkerpop.shaded.kryo.io.Input
@@ -36,16 +17,7 @@ import scala.reflect.ClassTag
  */
 public final class CompactBufferSerializer<T> implements SerializerShim<CompactBuffer<T>> {
 
-    /*
-    private final ClassTag<T> evidence$1;
-    private T element0;
-    private T element1;
-    private int org$apache$spark$util$collection$CompactBuffer$$curSize;
-    private Object otherElements;
-     */
-
-    // Exchanged CompactBuffer<T> for Object
-    @Override
+  @Override
   public <O extends OutputShim> void write(final KryoShim<?, O> kryo, final O output, final CompactBuffer<T> compactBuffer) {
         kryo.writeClassAndObject(output, compactBuffer.evidence$1);
         kryo.writeClassAndObject(output, compactBuffer.element0);
@@ -56,8 +28,8 @@ public final class CompactBufferSerializer<T> implements SerializerShim<CompactB
         output.flush();
     }
 
-    // Exchanged Class<CompactBuffer<T>> for Class<Object<T>>
-    @Override
+
+  @Override
   public <I extends InputShim> CompactBuffer<T> read(final KryoShim<I, ?> kryo, I input, final Class<CompactBuffer<T>> clazz) {
         final ClassTag<T> classTag = kryo.readClassAndObject(input);
         final CompactBuffer<T> compactBuffer = new CompactBuffer<>(classTag);

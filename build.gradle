@@ -1,0 +1,22 @@
+apply plugin: 'groovy'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+sourceSets {
+  main {
+    java { srcDirs = [] }
+    groovy {
+      srcDirs = ["src/main/groovy", "src/main/java"]
+      exclude 'edu/juris/thamyris/schema/ETLHelperTests.groovy'
+    }
+  }
+}
+
+dependencies {
+  compile 'org.codehaus.groovy:groovy:2.4.6'
+  compile 'org.apache.tinkerpop:gremlin-core:3.2.1-SNAPSHOT'
+  compile 'org.apache.tinkerpop:spark-gremlin:3.2.1-SNAPSHOT'
+}
